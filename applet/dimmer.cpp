@@ -1,24 +1,20 @@
 // Fade the LED like it is snoring
 
-#define LED 9
+#define SENSOR 0
 
 #include "WProgram.h"
 void setup();
 void loop();
 int val = 0;
-int old_val = 0;
-int state = 0;
-
-int brightness = 128;
-unsigned long startTime = 0;
 
 void setup() {
-  pinMode(LED, OUTPUT);
+ Serial.begin(9600); 
 }
 
 void loop() {
-  val = analogRead(0);
-  analogWrite(LED, val/4);
+  val = analogRead(SENSOR);
+  Serial.println(val);
+  delay(100);
 }
 int main(void)
 {

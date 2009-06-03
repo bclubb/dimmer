@@ -1,15 +1,23 @@
 // Fade the LED like it is snoring
 
-#define SENSOR 0
+#define RED 9
+#define BLUE 10
+#define GREEN 11
 
-int val = 0;
+int red = 0;
+int blue = 100;
+int green = 200;
 
 void setup() {
- Serial.begin(9600); 
+  pinMode(RED, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+  pinMode(GREEN, OUTPUT);
 }
 
 void loop() {
-  val = analogRead(SENSOR);
-  Serial.println(val);
-  delay(100);
+  delay(10);
+
+  analogWrite(RED, red++ % 255);
+  analogWrite(BLUE, blue++ % 255);
+  analogWrite(GREEN, green++ % 255);
 }
